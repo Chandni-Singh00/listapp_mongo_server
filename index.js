@@ -6,19 +6,19 @@ const cors = require('cors');
 const app = express();
 const port =  3001;
 
-// app.use( cors(
-//   {
-//     origin: process.env.CORS_ORIGIN,
-//     methods: ["GET"],
-//     credentials: true,
-//   }
-// ));
+app.use( cors(
+  {
+    origin: process.env.CORS_ORIGIN,
+    methods: ["GET"],
+    credentials: true,
+  }
+));
 
 // const uri = "mongodb+srv://singhchandni2003:Chandni123@cluster0.ilzeucj.mongodb.net/samplemflix?retryWrites=true&w=majority&appName=Cluster0";
 // const uri = "mongodb+srv://singhchandni2003:Chandni123@cluster0.ilzeucj.mongodb.net/sample_mflix";
 const uri=process.env.MONGODB_URI
 const client = new MongoClient(uri);
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 let database, moviesCollection;
 
